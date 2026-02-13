@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Nhận Lì Xì</title>
+<style>
+body {
+  font-family: Arial;
+  background: #fff3e0;
+  text-align: center;
+  padding: 40px;
+}
+input, button {
+  width: 90%;
+  max-width: 350px;
+  padding: 12px;
+  margin: 10px 0;
+  font-size: 16px;
+}
+button {
+  background: red;
+  color: white;
+  border: none;
+  border-radius: 8px;
+}
+</style>
+</head>
+<body>
+
+<h2>🎁 Nhận Lì Xì 🎁</h2>
+
+<input id="name" placeholder="Họ tên">
+<input id="account" placeholder="Số tài khoản">
+<input id="bank" placeholder="Ngân hàng">
+
+<button onclick="submitData()">Đồng ý nhận lì xì</button>
+
+<script>
+const API_URL = "https://script.google.com/macros/s/AKfycbxcVdQBfBnL7mMqwyHiidgp1hMefM2NLN2ONVzrW3gLP96O-VxTdDCp1fmshw8UsmD6/exec";
+
+function submitData() {
+  fetch(API_URL, {
+    method: "POST",
+    body: JSON.stringify({
+      name: document.getElementById("name").value,
+      account: document.getElementById("account").value,
+      bank: document.getElementById("bank").value
+    })
+  })
+  .then(() => alert("🎉 Đã ghi nhận rồi nhé!"));
+}
+</script>
+
+</body>
+</html>
